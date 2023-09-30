@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# displays the content of the file /etc/passwd as a story
+while IFS=":" read -r USERNAME PASSWORD USER_ID GROUP_ID USER_INFO HOME_DIRECTORY SHELL;
+do
+    echo "The user $USERNAME is part of the group $GROUP_ID and his home directory is $HOME_DIRECTORY"
+    done < /etc/passwd
