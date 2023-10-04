@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# opens a port to start listening on 98
+
+nc -lp 98
