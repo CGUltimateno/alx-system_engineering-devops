@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# transfer a file tothe server
 
 if (("$#" > 3))
 then
