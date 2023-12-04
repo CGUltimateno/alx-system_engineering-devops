@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
-sudo apt-get -y update
-sudo apt-get -y install nginx
+# installs haproxy and sets up a load balancer
 
+# install haproxy
+sudo apt update -y
+sudo apt install haproxy -y
+
+# set up load balancer
 echo "frontend requests
   bind *:80
   mode http
