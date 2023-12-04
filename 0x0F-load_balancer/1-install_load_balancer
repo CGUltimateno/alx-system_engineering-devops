@@ -8,11 +8,9 @@ sudo apt install haproxy -y
 # set up load balancer
 echo "frontend requests
   bind *:80
-  mode http
   default_backend servers
 
-backend servers
-  mode http
+backend web-servers
   balance roundrobin
   	server 233442-web-01 52.23.177.244:80 check
   	server 233442-web-02 34.232.78.203:80 check" | sudo tee /etc/haproxy/haproxy.cfg
