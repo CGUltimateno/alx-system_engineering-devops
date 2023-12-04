@@ -1,1 +1,16 @@
 #!/usr/bin/env bash
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+echo "frontend requests
+  bind *:80
+  mode http
+  default_backend servers
+
+backend servers
+  mode http
+  balance roundrobin
+  	server 233442-web-01 52.23.177.244:80 check
+  	server 233442-web-02 34.232.78.203:80 check" | sudo tee /etc/haproxy/haproxy.cfg
+
+sudo service haproxy restart
