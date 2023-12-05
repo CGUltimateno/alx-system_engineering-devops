@@ -12,7 +12,7 @@ echo "frontend requests
 
 backend web-servers
   balance roundrobin
-  	server 233442-web-01 52.23.177.244:80 check
-  	server 233442-web-02 34.232.78.203:80 check" | sudo tee /etc/haproxy/haproxy.cfg
+  	server 376420-web-01 52.23.177.244:80 check
+  	server 376420-web-02 34.232.78.203:80 check" | sudo tee /etc/haproxy/haproxy.cfg
 
 sudo service haproxy restart
