@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # installs nginx and sets up a web server on port 80
-ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-sudo service nginx start
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx start
 kill "$(pgrep 'nginx' | head -1)"
