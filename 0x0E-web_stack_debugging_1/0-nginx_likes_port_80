@@ -1,1 +1,6 @@
 #!/usr/bin/env bash
+# installs nginx and sets up a web server on port 80
+rm /etc/nginx/sites-enabled/default
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx reload
+sudo service nginx restart
