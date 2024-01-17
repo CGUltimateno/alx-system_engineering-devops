@@ -10,14 +10,11 @@ def number_of_subscribers(subreddit):
     """"
         Returns the number of subscribers
         """
-    user = {"User-Agent": "Mozilla/5.0"}
-    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    response = get(url, headers=user, allow_redirects=False)
-    try:
-        return response.json().get("data").get("subscribers")
-    except Exception:
+    subs = get("https://www.reddit.com/r/{}/about.json".format(subreddit),
+               headers={"User-Agent": "Custom_user"},
+               allow_redirects=False)
+    if subs.status_code == 200:
+        return subs.json().get("data").get("subscribers")
+    else:
         return 0
 
-
-if __name__ == "__main__":
-    number_of_subscribers(argv[1])
