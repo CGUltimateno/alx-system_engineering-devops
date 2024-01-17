@@ -2,7 +2,6 @@
 """"
     Queries the Reddit API and returns the number of subscribers
     """
-from sys import argv
 from requests import get
 
 
@@ -17,4 +16,3 @@ def number_of_subscribers(subreddit):
         return subs.json().get("data").get("subscribers")
     else:
         return 0
-
