@@ -15,5 +15,3 @@ def top_ten(subreddit):
                 print(f"Error decoding JSON: {e}")
         else:
             print("None")
-
-# Rest of your code remains the same...
