@@ -18,6 +18,3 @@ def number_of_subscribers(subreddit):
         else:
             return 0
 
-
-if __name__ == "__main__":
-    number_of_subscribers(argv[1])
