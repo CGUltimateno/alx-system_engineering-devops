@@ -19,4 +19,5 @@ def number_of_subscribers(subreddit):
 
 
 if __name__ == "__main__":
-    print(number_of_subscribers(argv[1]))
+    print(number_of_subscribers("programming"))
+    print(number_of_subscribers("this_is_a_fake_subreddit"))
