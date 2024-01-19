@@ -9,15 +9,12 @@ import requests
 
 def number_of_subscribers(subreddit):
     """ Returns the number of subscribers """
-    user = {"User-Agent": "CGU"}
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    res = requests.get(url, headers=user)
-    if res.status_code == 200:
-        return res.json()["data"]["subscribers"]
-    else:
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)\
+               AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77\
+               Safari/537.36"}
+    r = requests.get(url, headers=headers, allow_redirects=False)
+    if r.status_code == 404:
         return 0
-
-
-if __name__ == "__main__":
-    print(number_of_subscribers("programming"))
-    print(number_of_subscribers("this_is_a_fake_subreddit"))
+    results = r.json().get("data")
+    return results.get("subscribers")
