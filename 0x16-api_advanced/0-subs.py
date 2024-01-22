@@ -2,22 +2,17 @@
 """
 Queries the Reddit API and returns the number of subscribers
 """
-from sys import argv
-
 import requests
 
 
 def number_of_subscribers(subreddit):
     """ Returns the number of subscribers """
-    user = {"User-Agent": "CGU"}
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    res = requests.get(url, headers=user)
-    if res.status_code == 200:
-        return res.json()["data"]["subscribers"]
-    else:
+    headers = {
+        "User-Agent": "CGUltimateno"
+    }
+    r = requests.get(url, headers=headers, allow_redirects=False)
+    if r.status_code == 404:
         return 0
-
-
-if __name__ == "__main__":
-    print(number_of_subscribers("programming"))
-    print(number_of_subscribers("this_is_a_fake_subreddit"))
+    results = r.json().get("data")
+    return results.get("subscribers")
